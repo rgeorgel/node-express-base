@@ -1,0 +1,50 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/entry.ts",
+  "scripts": {
+    "dev": "nodemon --watch \"src/\" --exec \"ts-node src/entry.ts\" -e ts",
+    "test": "jest --no-cache",
+    "build": "tsc",
+    "prod": "npm run build && node dist/entry.js"
+  },
+  "author": "Ricardo Georgel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "module-alias": "^2.2.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2",
+    "ts-jest": "^25.0.0",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "@types/jest": "^24.9.1",
+    "@types/morgan": "^1.7.37",
+    "@types/supertest": "^2.0.8",
+    "ts-node": "^8.6.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.spec\\.ts",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "_moduleAliases": {
+    "@base": "dist",
+    "@app": "dist/src",
+    "@test": "dist/test"
+  }
+}
