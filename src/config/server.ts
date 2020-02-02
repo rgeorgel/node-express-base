@@ -2,6 +2,8 @@ import express from 'express';
 import logger from 'morgan';
 import * as bodyParser from 'body-parser';
 
+import ApplicationRouter from '@app/routes';
+
 class App {
   public express: express.Application;
 
@@ -18,15 +20,7 @@ class App {
   }
 
   private routes(): void {   
-    let router = express.Router();
-
-    router.get('/', (_req, res) => {
-      res.json({
-        message: 'Hello World!'
-      });
-    });
-
-    this.express.use('/', router);
+    this.express.use('/', ApplicationRouter);
   }
 }
 
